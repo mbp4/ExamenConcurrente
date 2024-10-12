@@ -1,6 +1,6 @@
-package org.example.examenconcurrente.prueba;
+package org.example.examenconcurrente.model;
 
-import org.example.examenconcurrente.prueba.VentanaSensores.VentanaSensores;
+import org.example.examenconcurrente.model.VentanaSensores.VentanaSensores;
 
 public class Principal {
 

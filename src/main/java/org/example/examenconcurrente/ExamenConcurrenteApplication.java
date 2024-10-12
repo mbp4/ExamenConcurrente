@@ -1,6 +1,6 @@
 package org.example.examenconcurrente;
 
-import org.example.examenconcurrente.prueba.VentanaSensores.VentanaSensores;
+import org.example.examenconcurrente.model.VentanaSensores.VentanaSensores;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

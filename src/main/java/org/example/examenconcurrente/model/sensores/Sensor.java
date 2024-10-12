@@ -1,7 +1,7 @@
-package org.example.examenconcurrente.prueba.sensores;
+package org.example.examenconcurrente.model.sensores;
 
 
-import org.example.examenconcurrente.prueba.VentanaSensores.VentanaSensores;
+import org.example.examenconcurrente.model.VentanaSensores.VentanaSensores;
 
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -24,7 +24,7 @@ public class Sensor {
     public void medir(ScheduledExecutorService ejecutor){
         int medida = gauss.gaussianRandom();
         //System.out.println("Medidicion" + (contador + 1) + "Tipo " + tipo + ": " + medida);
-        vs.muestraTemperatura(medida);
+        vs.muestraPelotas(medida);
         contador++;
         if (contador == maxMediciones){
             ejecutor.shutdown();
