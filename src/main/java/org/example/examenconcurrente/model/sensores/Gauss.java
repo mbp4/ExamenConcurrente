@@ -8,6 +8,7 @@ public class Gauss {
     private double stdDev;
     private double mean;
 
+
     public Gauss(double min, double max, double stdDev) {
         this.min = min;
         this.max = max;
@@ -15,6 +16,7 @@ public class Gauss {
         this.mean = (max + min) / 2;
     }
 
+    // Genera un número aleatorio con distribución gaussiana
     public int gaussianRandom() {
         Random random = new Random();
         double gaussianValue = random.nextGaussian();  // Valor generado con distribución gaussiana

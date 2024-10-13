@@ -20,10 +20,9 @@ public class Sensor {
         this.vs = vs;
     }
 
-
+    // Genera una medición y la muestra en la ventana de sensores
     public void medir(ScheduledExecutorService ejecutor){
         int medida = gauss.gaussianRandom();
-        //System.out.println("Medidicion" + (contador + 1) + "Tipo " + tipo + ": " + medida);
         vs.muestraPelotas(medida);
         contador++;
         if (contador == maxMediciones){

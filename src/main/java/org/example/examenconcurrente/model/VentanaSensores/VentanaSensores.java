@@ -18,6 +18,7 @@ public class VentanaSensores extends JFrame{
     private JScrollPane scrollPanePelotas;
     private JButton botonReiniciar;
 
+    //Genera la ventana de los sensores
     public VentanaSensores(){
         this.setSize(new Dimension(3000, 2000));
         this.getContentPane().setLayout(null);
@@ -30,6 +31,7 @@ public class VentanaSensores extends JFrame{
         crearTablaPelotas();
     }
 
+    //Inicia la medición de las pelotas
     private void crearTablaPelotas() {
         String[] nombresColumnas = {"Valor", "Mediciones", "Gráfica"};
         Object[][] datos = new Object[21][3];
@@ -49,12 +51,15 @@ public class VentanaSensores extends JFrame{
         scrollPanePelotas.setBounds(10, 50, 1900, 500);
         this.add(scrollPanePelotas);
 
+        //Agrega el evento al botón para empezar la medición de las pelotas
         botonPelotas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 empezarMedicionPelotas();
             }
         });
+
+        //Agrega el evento al botón para reiniciar la tabla de las pelotas
         botonReiniciar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,12 +68,14 @@ public class VentanaSensores extends JFrame{
         });
     }
 
+    //Inicia la medición de las pelotas
     private void empezarMedicionPelotas() {
         Sensor sensorT = new Sensor("Pelotas", 2000, this);
         ScheduledExecutorService ejecutorT = Executors.newScheduledThreadPool(8);
         ejecutorT.scheduleAtFixedRate(() -> sensorT.medir(ejecutorT), 0, 40, TimeUnit.MILLISECONDS);
     }
 
+    //Reinicia la tabla de las pelotas
     private void reiniciarTablaPelotas() {
         for (int i = 0; i < 21; i++){
             tablaPelotas.setValueAt(0, i, 1);
@@ -76,6 +83,7 @@ public class VentanaSensores extends JFrame{
         }
     }
 
+    //Muestra las pelotas en la tabla
     public void muestraPelotas(int medida) {
 
         if (medida >= 0 && medida < tablaPelotas.getRowCount()){
@@ -87,6 +95,7 @@ public class VentanaSensores extends JFrame{
         }
     }
 
+    //Genera la gráfica de las pelotas
     private String generarGrafico(int nuevoValor) {
         StringBuilder grafico = new StringBuilder();
 
